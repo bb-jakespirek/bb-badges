@@ -15,7 +15,7 @@ from openpyxl.compat import range
 from openpyxl.cell import get_column_letter, column_index_from_string
 
 # Load spreadsheet
-wb = load_workbook('aha_ids_to_open.xlsx', guess_types=True)
+wb = load_workbook('badge_descriptions.xlsx', guess_types=True)
 
 # Grab the active worksheet by name
 ws = wb['Working']
