@@ -1,10 +1,9 @@
+# https://openpyxl.readthedocs.org/en/latest/
+# cd /Users/jake.spirek/GitHub/badges 
+# python3 format_badge_html.py 
+
 import webbrowser
-
-
-
 import os
-
-
 os.system("clear")
 print("\n ----- Begin Script ----- \n")
 
@@ -47,7 +46,6 @@ def makeIDlist(column_index):
 	id_list.pop(0)
 
 
-# for future reference, PEP8 says use "snake case" (underscores) instead of camel case for func names
 def open_each_id(id_list, which_view):
 	global number_to_open
 	global counter
@@ -74,32 +72,86 @@ def open_each_id(id_list, which_view):
 def open_in_browser(url):
 	# Open URL in a new tab, if a browser window is already open.
 	webbrowser.open_new_tab(url)
-
 	# Open URL in new window, raising the window if possible.
 	# webbrowser.open_new(url)
 
-user_number = input("Which view? (1 = Admin, 2 = Front-end) ") 
-which_view = 1
 
-try:
-	which_view = int(user_number)
-except:
-	which_view = 1
+def write_to_textfile(thelist):
+	# http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
+	thelist.pop(0)
+	filepath = "badges.html"
+	with open(filepath, 'w') as file:
+		file.write('<ul class="media-list">\n')
+		for index, value in enumerate(thelist):
+			file.write('\t<li class="media">\n\t\t<div class="media-left">\n\t\t\t<img class="media-object" src="{}" alt="{}">\n\t\t</div>\n'.format(value, index))
+			file.write('\t\t<div class="media-body">\n\t\t\t<h4 class="media-heading">{}</h4>\n\t\t</div>\n'.format(value))
+			file.write('\t</li>\n')
+		file.write('</ul>\n')
+# for index, value in enumerate(my_list):
+# 	print(index, value, "\n")
+# for item in thelist:
+	# thefile = open("hello.txt", "w")
+	# for item in incoming_list:
+	# 	thefile.write("%s\n" % item)
+	# lines_of_text = ["a line of text", "another line of text", "a third line"]
+	# fh.writelines(lines_of_text)
+	# file.close()
 
 
-user_number = input("How many to open? ") 
-number_to_open = 0
+def append_to_textfile():
+	# http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python
+	fh = open("hello.txt", "a")
+	lines_of_text = ["a line of text", "another line of text", "a third line"]
+	fh.writelines(lines_of_text)
+	fh.close()
 
-try:
-	number_to_open = int(user_number)
-except:
-	number_to_open = num_rows
+
+def cycle_thru_each_row():
+	for row in ws.rows:
+		print(row[badge_filename_col-1].value, row[badge_type_col-1].value, row[badge_description_col-1].value)
+		id_list.append(row[badge_filename_col-1].value)
 
 
-ticket_id_col = findColumnIndexByTitle("Ideas")
-# print("\n", "Ticket Id Column Index:", ticket_id_col)
+# user_number = input("Which view? (1 = Admin, 2 = Front-end) ") 
+# which_view = 1
 
-makeIDlist(ticket_id_col)
+# try:
+# 	which_view = int(user_number)
+# except:
+# 	which_view = 1
+
+
+# user_number = input("How many to open? ") 
+# number_to_open = 0
+
+# try:
+# 	number_to_open = int(user_number)
+# except:
+# 	number_to_open = num_rows
+
+
+# print("\n", ws.columns)
+
+
+badge_filename_col = findColumnIndexByTitle("Filename")
+badge_type_col = findColumnIndexByTitle("Type")
+badge_description_col = findColumnIndexByTitle("Description")
+print("\n", "Filename Column Index:", badge_filename_col)
+# print("\n", "Column A:", ws.columns[badge_filename_col-1])
+# print("\n", "Column B:", ws.columns[badge_type_col-1])
+
+print("\n", "Row 1:", ws.rows[badge_filename_col][0].value)
+
+cycle_thru_each_row()
+
+# test write
+write_to_textfile(id_list)
+append_to_textfile()
+
+
+print("this list has {} items and {} stuffs".format(len(id_list),29))
+
+# makeIDlist(ticket_id_col)
 # print(id_list)
 
-open_each_id(id_list,which_view)
+# open_each_id(id_list,which_view)
