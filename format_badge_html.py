@@ -48,7 +48,7 @@ def write_to_textfile(thelist):
 		for index, item in enumerate(thelist):
 
 			file.write('\t<li class="media">\n\t\t<div class="media-left">\n\t\t\t<img class="media-object" src="http://static.smallworldlabs.com/blackbaud/content/icons/badges/{}/{}" alt="{}">\n\t\t</div>\n'.format(item[badge_type_col].value.lower(), item[badge_filename_col].value, index))
-			file.write('\t\t<div class="media-body">\n\t\t\t<h4 class="media-heading">{}</h4>\n\t\t</div>\n'.format(item[badge_description_col].value))
+			file.write('\t\t<div class="media-body">\n\t\t\t<h4 class="media-heading">{}</h4>\n\t\t<p>{}</p></div>\n'.format(item[badge_heading_col].value, item[badge_description_col].value))
 			file.write('\t</li>\n')
 		file.write('</ul>\n')
 
@@ -64,6 +64,7 @@ def cycle_thru_each_row():
 
 badge_filename_col = find_column_index_by_title("Filename")
 badge_type_col = find_column_index_by_title("Type")
+badge_heading_col = find_column_index_by_title("Heading")
 badge_description_col = find_column_index_by_title("Description")
 
 print("\n", "Filename Column Index:", badge_filename_col)
