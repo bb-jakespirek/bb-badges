@@ -1,0 +1,1 @@
+<div class="panel panel-default badges">\n\t<div class="panel-left"><img src="{}" alt="{}"></div>\n\t<div class="panel-body">\n\t\t<h4>{}</h4>\n\t\t<p>{}</p>\n\t</div>\n</div>

@@ -1,0 +1,7 @@
+<div class="panel panel-default badges">
+	<div class="panel-left"><img src="{}" alt="{}"></div>
+	<div class="panel-body">
+		<h4>{}</h4>
+		<p>{}</p>
+	</div>
+</div>

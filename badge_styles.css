@@ -1,0 +1,65 @@
+<style type="text/css">
+
+
+
+.badges_wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+.panel-left {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #DEDEDE;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.badges {
+  color: #000;
+}
+.badges .panel-body {
+  display: table-cell;
+}
+.badges h4 {
+  /* 100th Response Provi: */
+  font-family: HelveticaNeue-Medium, "Helvetica Neue", Helvetica;
+  font-size: 28px;
+  line-height: 34px;
+  margin: 0;
+  color: inherit;
+
+}
+
+.badges p {
+  margin: 0;
+  font-family: HelveticaNeue-Light, "Helvetica Neue", Helvetica;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.badges.intro {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: #DEDEDE;
+  color: #656262;
+}
+.badges.intro h4 {
+  font-size: 35px;
+  line-height: 40px;
+  margin-bottom: 10px;
+  color: inherit;
+}
+
+.badges.intro .panel-body  {
+  display: block;
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+}
+
+</style>

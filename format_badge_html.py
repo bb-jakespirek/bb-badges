@@ -44,13 +44,14 @@ def write_to_textfile(thelist):
 	# profile_url = "http://static.smallworldlabs.com/blackbaud/content/icons/badges/profile/"
 	# persistent_url = "http://static.smallworldlabs.com/blackbaud/content/icons/badges/persistent/"
 	with open(filepath, 'w') as file:
-		file.write('<ul class="media-list">\n')
+		file.write('<div class="badges_wrapper">\n')
 		for index, item in enumerate(thelist):
-
-			file.write('\t<li class="media">\n\t\t<div class="media-left">\n\t\t\t<img class="media-object" src="http://static.smallworldlabs.com/blackbaud/content/icons/badges/{}/{}" alt="{}">\n\t\t</div>\n'.format(item[badge_type_col].value.lower(), item[badge_filename_col].value, index))
-			file.write('\t\t<div class="media-body">\n\t\t\t<h4 class="media-heading">{}</h4>\n\t\t<p>{}</p></div>\n'.format(item[badge_heading_col].value, item[badge_description_col].value))
-			file.write('\t</li>\n')
-		file.write('</ul>\n')
+			# use the format_one_line script to pull it together into one line
+			file.write('<div class="panel panel-default badges">\n\t<div class="panel-left"><img src="http://static.smallworldlabs.com/blackbaud/content/icons/badges/{}/{}" alt="{}"></div>\n\t<div class="panel-body">\n\t\t<h4>{}</h4>\n\t\t<p>{}</p>\n\t</div>\n</div>\n'.format(item[badge_type_col].value.lower(), item[badge_filename_col].value, item[badge_heading_col].value, item[badge_heading_col].value, item[badge_description_col].value))	
+		# 	file.write('\t<li class="media">\n\t\t<div class="media-left">\n\t\t\t<img class="media-object" src="http://static.smallworldlabs.com/blackbaud/content/icons/badges/{}/{}" alt="{}">\n\t\t</div>\n'.format(item[badge_type_col].value.lower(), item[badge_filename_col].value, index))
+		# 	file.write('\t\t<div class="media-body">\n\t\t\t<h4 class="media-heading">{}</h4>\n\t\t<p>{}</p></div>\n'.format(item[badge_heading_col].value, item[badge_description_col].value))
+		# 	file.write('\t</li>\n')
+		file.write('</div>\n')
 
 
 def cycle_thru_each_row():
